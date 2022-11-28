@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Page Parking</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <p id="dataViz"></p>
+
+    <div class="infos_parking">
+      <h1 id="nom_parking">Nom parking</h1>
+      <h3 id="adress">Localisation :</h3>
+      <div id="map"></div>
+      <h4 id="capacite_max"></h4>
+      <h3 id="places_dispo"></h3>
+    </div>
+
+    <div class="animation_visuelle">
+
+    </div>
+    
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
+    <script src="js/page_parking.js"></script>
+  </body>
+</html>
