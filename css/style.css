@@ -7,3 +7,8 @@ h1 {
     height: 400px; 
     width: 400px;
 }
+
+.container {
+    height: 40%;
+    width: 40%;
+}

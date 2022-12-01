@@ -1,6 +1,7 @@
 //intialisation des variables de coordonnées
 var latitude = 0;
 var longitude = 0;
+const ctx = document.getElementById('myChart');
 
 //utilisation de fetch pour récup les données de l'API
 fetch(
@@ -27,14 +28,36 @@ fetch(
     //recup le nombre de places dispo
     placeDispo = data.records[0].record.fields.disponibilite;
 
+    placeOccuped = capaciteMax - placeDispo
+
     //les données sont injectées dans le html
     document.getElementById("nom_parking").innerHTML = parkingName;
     document.getElementById("capacite_max").innerHTML =
       "Capacité maximale : " + capaciteMax;
     document.getElementById("places_dispo").innerHTML =
       "Places disponibles : " + placeDispo;
+    
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Places vide', 'Places occupées'],
+          datasets: [{
+            label: '',
+            data: [placeDispo, placeOccuped],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
 
-    //recup les coordonnées GPS du parking
+    
+  //recup les coordonnées GPS du parking
     var parkingAdress = "";
     parkingAdress = data.records[0].record.fields.location;
     //je separe les valeurs du tableau en deux 
