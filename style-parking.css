@@ -1,0 +1,44 @@
+.header {
+    padding: 5%;
+    background: #000000;
+    color: rgb(255, 255, 255);
+    display: flex; 
+    justify-content: space-between;
+}
+
+#logo h1 {
+    font-family: 'Abril Fatface';
+    font-weight: 400px ; 
+    font-size: 55px; 
+}
+
+.container {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: row;
+    justify-content: space-between;
+    height: 80px;
+    line-height: 80px; 
+    list-style: none;
+}
+
+.nav:hover{
+    background-color: grey;
+}
+
+#map { 
+    height: 400px; 
+    width: 400px;
+}
+
+.bloc {
+    background-color: grey;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 40%;
+    height: 50%;
+}

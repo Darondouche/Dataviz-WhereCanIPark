@@ -5,37 +5,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-parking.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <p id="dataViz"></p>
 
-    <div class="infos_parking">
+  <body>
+
+    <!-- Header + nav -->
+    <div class="header">
+      <h1 id="logo">Where can I park my car?</h1>
+      <ul class="container">
+          <li><a href="parking">parkings</a></li>
+          <li><a href="plan">plan</a></li>
+          <li><a href="project">our project</a></li>
+        </ul>
+    </div>
+
+    <!-- Parkings -->
+    <div class="infos_parking bloc">
       <h1 id="nom_parking">Nom parking</h1>
       <h3 id="adress">Localisation :</h3>
       <div id="map"></div>
-      <h4 id="capacite_max"></h4>
+      <h3 id="capacite_max"></h3>
       <h3 id="places_dispo"></h3>
     </div>
 
-    <div class="animation_visuelle">
-
+    <!--Le graphique lié au parking-->
+    <div class="graphique bloc">
+      <p>Ici se trouvera le graphique</p>
     </div>
-    <div class="container">
-      <canvas id="myChart"></canvas>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
       integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-      crossorigin=""
-    ></script>
+      crossorigin="">
+    </script>
 
     <script src="js/page_parking.js"></script>
   </body>
