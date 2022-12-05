@@ -122,7 +122,21 @@
     position: absolute;
     width: 142px;
     height: 140px;
-    left: 210px;
+    left: 0px;
     top: 500px;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+    /* Animation left to right */
+    animation: slide 5s infinite;
+  }
+
+  /* Animation left to right */
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(500px);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
