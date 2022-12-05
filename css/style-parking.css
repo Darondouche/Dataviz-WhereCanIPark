@@ -14,10 +14,9 @@ a:hover {
 }
 
 .logo {
-  width: 684px;
-  height: 104px;
-  left: 84px;
-  top: 75px;
+  height: 1em;
+  left: 1em;
+  top: 1em;
   font-family: "Abril Fatface";
   font-style: normal;
   font-weight: 400;
@@ -38,6 +37,7 @@ nav {
 .nav-list {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .nav-list li {
@@ -56,6 +56,7 @@ nav {
     height: 92vh;
     background: #23232e;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     transform: translateX(100%);
@@ -87,15 +88,33 @@ nav {
 
 #map {
   height: 400px;
-  width: 400px;
+  width: 100%;
+  border-radius: 30px;
 }
 
 .bloc {
-  background-color: grey;
   font-family: "Poppins", sans-serif;
   display: flex;
+  padding: 0.5em;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 45%;
+}
+
+.graphique {
+  background-color: rgb(218, 218, 218);
+  padding: 20px;
+  margin: 1em;
+  width: 30em;
+  border-radius: 20px;
+  align-self: center;
+}
+
+.infos_parking {
+  background-color: rgb(218, 218, 218);
   flex-direction: column;
-  justify-content: left;
-  width: 40%;
-  height: 50%;
+  border-radius: 20px;
+  width: 30em;
+  margin: 1em;
+  padding: 20px;
 }
