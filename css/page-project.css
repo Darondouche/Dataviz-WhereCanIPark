@@ -39,9 +39,9 @@
   .equipe {
     position: absolute;
     width: 60%;
-    height: 60%;
-    left: 654px;
-    top: 255px;
+    height: 79%;
+    left: 40%;
+    top: 150px;
   }
   
   .nav-list {
@@ -74,9 +74,6 @@
       margin-left: 0;
       opacity: 0;
     }
-    .mobile-menu {
-      display: block;
-    }
   }
   
   .nav-list.active {
@@ -93,24 +90,12 @@
       transform: translateX(0);
     }
   }
-  
-  .mobile-menu.active .line1 {
-    transform: rotate(-45deg) translate(-8px, 8px);
-  }
-  
-  .mobile-menu.active .line2 {
-    opacity: 0;
-  }
-  
-  .mobile-menu.active .line3 {
-    transform: rotate(45deg) translate(-5px, -7px);
-  }
   .format1 {
     position: absolute;
     width: 418px;
-    height: 139px;
+    height: 80px;
     left: 74px;
-    top: 393px;
+    top: 200px;
     font-family: 'Abril Fatface';
     font-style: normal;
     font-weight: 400;
@@ -124,7 +109,7 @@
     width: 375px;
     height: 127px;
     left: 96px;
-    top: 532px;
+    top: 320px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -138,6 +123,6 @@
     width: 142px;
     height: 140px;
     left: 210px;
-    top: 789px;
+    top: 600px;
     transform: matrix(-1, 0, 0, 1, 0, 0);
   }
