@@ -48,10 +48,10 @@ async function placeMarkerMap() {
         console.log("no location");
         i++;
       } else if (pourcentage >= 50) {
-        let marker = L.marker([location.lat, location.lon], {icon: orangeIcon}).addTo(map);
+        let marker = L.marker([location.lat, location.lon], {icon: greenIcon}).addTo(map);
         marker.bindPopup(`<a href = "/"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`)
       } else if (pourcentage >= 25) {
-        let marker = L.marker([location.lat, location.lon], {icon: greenIcon}).addTo(map);
+        let marker = L.marker([location.lat, location.lon], {icon: orangeIcon}).addTo(map);
         marker.bindPopup(`<a href = "/"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`);
       } else {
         let marker = L.marker([location.lat, location.lon], {icon: redIcon}).addTo(map);
