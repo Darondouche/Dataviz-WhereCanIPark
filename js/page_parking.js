@@ -5,7 +5,7 @@ const ctx = document.getElementById('myChart');
 
 //utilisation de fetch pour récup les données de l'API
 fetch(
-  "https://data.nantesmetropole.fr/api/v2/catalog/datasets/244400404_parkings-publics-nantes-disponibilites/records?limit=10&offset=0&timezone=UTC&apikey=3b4c2febcb6bb7c2aee6a640c9d1c025ac14963eef5f6c4f0ecc9fb6"
+  "https://data.nantesmetropole.fr/api/v2/catalog/datasets/244400404_parkings-publics-nantes-disponibilites/records?limit=31&offset=0&timezone=UTC&apikey=3b4c2febcb6bb7c2aee6a640c9d1c025ac14963eef5f6c4f0ecc9fb6"
 )
   //fonction asynchrone qui recup une fois que toutes les données sont chargées
   .then(function (response) {
@@ -19,6 +19,22 @@ fetch(
     var parkingName = "";
     var capaciteMax = "";
     var placeDispo = "";
+
+    let parking = [];
+    let dispo = [];
+    let max = [];
+
+    //boucle pour parcourir les données
+    for (let i = 0; i < data.records.length; i++) {
+      //recup des données
+      parking.push(data.records[i].record.fields.grp_nom);
+      dispo.push(data.records[i].record.fields.disponibilite);
+      max.push(data.records[i].record.fields.grp_exploitation);
+    }
+
+    console.log(parking);
+    console.log(dispo);
+    console.log(max);
 
     //pour le nom du parking
     parkingName = data.records[0].record.fields.grp_nom;

@@ -35,7 +35,7 @@ async function dataViz(url) {
 
 //Function that place marker on a map with the data from the url
 async function placeMarkerMap() {
-    const data = await dataViz("https://data.nantesmetropole.fr/api/v2/catalog/datasets/244400404_parkings-publics-nantes-disponibilites/records?limit=16&offset=0&timezone=UTC&apikey=3b4c2febcb6bb7c2aee6a640c9d1c025ac14963eef5f6c4f0ecc9fb6");
+    const data = await dataViz("https://data.nantesmetropole.fr/api/v2/catalog/datasets/244400404_parkings-publics-nantes-disponibilites/records?limit=31&offset=0&timezone=UTC&apikey=3b4c2febcb6bb7c2aee6a640c9d1c025ac14963eef5f6c4f0ecc9fb6");
     console.log(data);
 
     for (let i = 0; i < data.records.length; i++) {
