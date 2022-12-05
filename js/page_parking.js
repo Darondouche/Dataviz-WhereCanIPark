@@ -71,6 +71,13 @@ fetch(
       attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map);
+
+  
+    console.log(parkingName);
+    console.log(parkingAdress);
+    console.log(capaciteMax);
+    console.log(placeOccuped);
+    console.log(placeDispo);
   });
 
 //le fetch s'actualise toutes les 2 minutes

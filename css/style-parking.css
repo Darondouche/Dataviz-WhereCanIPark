@@ -14,22 +14,23 @@ a:hover {
 }
 
 .logo {
-  height: 1em;
-  left: 1em;
-  top: 1em;
-  font-family: "Abril Fatface";
+  width: 684px;
+  height: 104px;
+  left: 84px;
+  top: 75px;
+  font-family: 'Abril Fatface';
   font-style: normal;
   font-weight: 400;
   font-size: 64px;
   line-height: 86px;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
   background: #23232e;
   height: 20vh;
 }
@@ -37,7 +38,6 @@ nav {
 .nav-list {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
 }
 
 .nav-list li {
@@ -56,7 +56,6 @@ nav {
     height: 92vh;
     background: #23232e;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     transform: translateX(100%);
@@ -89,16 +88,15 @@ nav {
 #map {
   height: 400px;
   width: 100%;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .bloc {
   font-family: "Poppins", sans-serif;
   display: flex;
-  padding: 0.5em;
+  padding: 1em;
   flex-direction: row;
   justify-content: space-around;
-  height: 45%;
 }
 
 .graphique {
