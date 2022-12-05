@@ -39,7 +39,7 @@
   .equipe {
     position: absolute;
     width: 60%;
-    height: 79%;
+    height: 82%;
     left: 40%;
     top: 150px;
   }
@@ -99,7 +99,7 @@
     font-family: 'Abril Fatface';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 43px;
     text-align: center;
     color: #000000;
@@ -113,16 +113,42 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 36px;
     text-align: center;
     color: #000000;
   }
+
   .byelogo {
     position: absolute;
-    width: 142px;
-    height: 140px;
+    width: 132px;
+    height: 130px;
     left: 210px;
     top: 600px;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+
+  .byelogo {
+    animation: byelogo 1s ease infinite;
+  }
+  
+  @keyframes byelogo {
+    30% {
+      transform: scale(1.2);
+    }
+  
+    40%, 60% {
+      transform: rotate(-20deg) scale(1.2);
+    }
+  
+    50%{
+      transform: rotate(20deg) scale(1.2);
+    }
+  
+    70%{
+      transform: rotate(0deg);
+    }
+  
+    100%{
+      transform: scale(1);
+    }
   }
