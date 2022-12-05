@@ -1,12 +1,13 @@
 #map { 
-    height: 600px; 
-    width: 1300px;
+    height: 42rem; 
+    width: 100rem;
     /* center in middle of page and round border */
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     border-radius: 10px;
     
 }
+
 * {
     margin: 0;
     padding: 0;
