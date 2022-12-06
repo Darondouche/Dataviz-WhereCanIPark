@@ -77,11 +77,12 @@ fetch(
         }
       });
     }
+
     // Création des cartes et attribution des données
     for (i in dictPark) {
       let mapSelect = document.getElementById(`map${dictPark[i].name}`);
       let location = dictPark[i].location;
-      
+
       if (location) {
         let map = L.map(mapSelect).setView([location.lat, location.lon], 16);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
