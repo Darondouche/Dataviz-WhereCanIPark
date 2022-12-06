@@ -52,19 +52,21 @@ async function placeMarkerMap() {
       let placeTotal = data.records[i].record.fields.grp_exploitation
       let pourcentage = (placeDispo / placeTotal) * 100
       let location = data.records[i].record.fields.location
+      let name = data.records[i].record.fields.grp_nom
+      let 
 
       if (location == null) {
         console.log(`Pas de coordonnées pour ${data.records[i].record.fields.grp_nom}`)
         i++;
       } else if (pourcentage >= 50) {
         let marker = L.marker([location.lat, location.lon], {icon: greenIcon}).addTo(map);
-        marker.bindPopup(`<a href = "/"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`)
+        marker.bindPopup(`<a href ="page-parking.html#${name}"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`)
       } else if (pourcentage >= 25) {
         let marker = L.marker([location.lat, location.lon], {icon: orangeIcon}).addTo(map);
-        marker.bindPopup(`<a href = "/"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`);
+        marker.bindPopup(`<a href ="page-parking.html#${name}"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`);
       } else {
         let marker = L.marker([location.lat, location.lon], {icon: redIcon}).addTo(map);
-        marker.bindPopup(`<a href = "/"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`);
+        marker.bindPopup(`<a href ="page-parking.html#${name}"><b>${data.records[i].record.fields.grp_nom}</b></a><br>Places disponibles : ${placeDispo}<br>Places totales : ${placeTotal}`);
       }
     }
 }

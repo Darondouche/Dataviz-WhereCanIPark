@@ -25,17 +25,18 @@ fetch(
         location: data.records[i].record.fields.location,
         dispo: data.records[i].record.fields.disponibilite,
         max: data.records[i].record.fields.grp_exploitation,
-      }
+      };
     }
     console.log(dictPark);
 
     // Creation des blocs pour chaque parking et attribution des données
     for (i in dictPark) {
-      console.log(dictPark[i].name)
-      let allParking = document.querySelector('.allParking');
+      console.log(dictPark[i].name);
+      let allParking = document.querySelector(".allParking");
       allParking.innerHTML += `
       <div class="bloc">
       <div class="infos_parking">
+      <section id="${dictPark[i].nameDisplay}"></section>
       <h1 class="parking_name ${dictPark[i].name}">${dictPark[i].nameDisplay}</h1>
       <h3 class="capacite_max ${dictPark[i].max}">Capacité max : ${dictPark[i].max}</h3>
       <h3 class="places_dispo ${dictPark[i].dispo}">Places disponibles : ${dictPark[i].dispo}</h3>
@@ -44,37 +45,35 @@ fetch(
       <div class="graphique">
       <canvas class="myChart ${dictPark[i].name}" width="400" height="400"></canvas>
       </div>
-      `
+      `;
     }
 
     // Création des graphiques et attribution des données
     for (i in dictPark) {
-      let myChart = document.getElementsByClassName(`myChart ${dictPark[i].name}`);
+      let myChart = document.getElementsByClassName(
+        `myChart ${dictPark[i].name}`
+      );
       new Chart(myChart, {
-        type: 'doughnut',
+        type: "doughnut",
         data: {
-          labels: ['Places disponibles', 'Places occupées'],
-          datasets: [{
-            label: '# of Votes',
-            data: [dictPark[i].dispo, dictPark[i].max - dictPark[i].dispo],
-            backgroundColor: [
-              'rgba(0, 255, 0, 0.2)',
-              'rgba(255, 0, 0, 0.2)',
-            ],
-            borderColor: [
-              'rgba(0, 255, 0, 1)',
-              'rgba(255, 0, 0, 1)',
-            ],
-            borderWidth: 1
-          }]
+          labels: ["Places disponibles", "Places occupées"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [dictPark[i].dispo, dictPark[i].max - dictPark[i].dispo],
+              backgroundColor: ["rgba(0, 255, 0, 0.2)", "rgba(255, 0, 0, 0.2)"],
+              borderColor: ["rgba(0, 255, 0, 1)", "rgba(255, 0, 0, 1)"],
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
           scales: {
             y: {
-              beginAtZero: true
-            }
-          }
-        }
+              beginAtZero: true,
+            },
+          },
+        },
       });
     }
 
@@ -85,10 +84,11 @@ fetch(
 
       if (location) {
         let map = L.map(mapSelect).setView([location.lat, location.lon], 16);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         }).addTo(map);
-        L.marker([location.lat, location.lon]).addTo(map)
+        L.marker([location.lat, location.lon]).addTo(map);
       }
     }
   });
