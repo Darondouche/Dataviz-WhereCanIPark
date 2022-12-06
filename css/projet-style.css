@@ -39,11 +39,11 @@
   .city {
     position: absolute;
     width: 60%;
-    height: 79%;
-    left: 40%;
+    height: 78%;
+    max-width: 980px;
+    left: 44%;
     top: 150px;
   }
-  
   .nav-list {
     list-style: none;
     display: flex;
@@ -150,3 +150,20 @@
       transform: translateX(0);
     }
   }
+ /* @media screen and (max-width: 480px) {
+    .caixa, .principal, .conteudo-beneficios, .mapa-conteudo, .video {
+        width: auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        position: static;
+    }
+
+    .lista-beneficios, .imagem-beneficios {
+        width: 100%;
+    }
+}*/
