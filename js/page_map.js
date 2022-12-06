@@ -53,7 +53,6 @@ async function placeMarkerMap() {
       let pourcentage = (placeDispo / placeTotal) * 100
       let location = data.records[i].record.fields.location
       let name = data.records[i].record.fields.grp_nom
-      let 
 
       if (location == null) {
         console.log(`Pas de coordonnées pour ${data.records[i].record.fields.grp_nom}`)
