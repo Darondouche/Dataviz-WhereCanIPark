@@ -1,8 +1,3 @@
-//intialisation des variables de coordonnées
-var latitude = 0;
-var longitude = 0;
-const ctx = document.getElementById("myChart");
-
 //utilisation de fetch pour récup les données de l'API
 fetch(
   "https://data.nantesmetropole.fr/api/v2/catalog/datasets/244400404_parkings-publics-nantes-disponibilites/records?limit=31&offset=0&timezone=UTC&apikey=3b4c2febcb6bb7c2aee6a640c9d1c025ac14963eef5f6c4f0ecc9fb6"
@@ -20,15 +15,18 @@ fetch(
 
     //boucle pour parcourir les données
     for (let i = 0; i < data.records.length; i++) {
-      //recup des données
+      //recup des données dans un dictionnaire
+      let nameString = data.records[i].record.fields.grp_nom;
+      nameString = nameString.replace(/ /g, "_");
+
       dictPark[i] = {
-        name: data.records[i].record.fields.grp_nom,
+        name: nameString,
+        nameDisplay: data.records[i].record.fields.grp_nom,
         location: data.records[i].record.fields.location,
         dispo: data.records[i].record.fields.disponibilite,
         max: data.records[i].record.fields.grp_exploitation,
       }
     }
-    // Sort an dictPark by name
     console.log(dictPark);
 
     // Creation des blocs pour chaque parking et attribution des données
@@ -38,9 +36,10 @@ fetch(
       allParking.innerHTML += `
       <div class="bloc">
       <div class="infos_parking">
-      <h1 class="parking_name ${dictPark[i].name}">${dictPark[i].name}</h1>
+      <h1 class="parking_name ${dictPark[i].name}">${dictPark[i].nameDisplay}</h1>
       <h3 class="capacite_max ${dictPark[i].max}">Capacité max : ${dictPark[i].max}</h3>
       <h3 class="places_dispo ${dictPark[i].dispo}">Places disponibles : ${dictPark[i].dispo}</h3>
+      <div class="map ${dictPark[i].name}"></div>
       </div>
       <div class="graphique">
       <canvas class="myChart ${dictPark[i].name}" width="400" height="400"></canvas>
@@ -51,7 +50,7 @@ fetch(
     // Création des graphiques et attribution des données
     for (i in dictPark) {
       let myChart = document.getElementsByClassName(`myChart ${dictPark[i].name}`);
-      let myChart2 = new Chart(myChart, {
+      new Chart(myChart, {
         type: 'doughnut',
         data: {
           labels: ['Places disponibles', 'Places occupées'],
@@ -78,9 +77,10 @@ fetch(
         }
       });
     }
-});
+  });
+
 
 //le fetch s'actualise toutes les 2 minutes
-setTimeout(function () {
-  getAdress.reload();
-}, 120000);
+// setTimeout(function () {
+//   getAdress.reload();
+// }, 120000);
