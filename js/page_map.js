@@ -45,7 +45,7 @@ async function placeMarkerMap() {
       let location = data.records[i].record.fields.location
 
       if (location == null) {
-        console.log("no location");
+        console.log(`Pas de coordonnées pour ${data.records[i].record.fields.grp_nom}`)
         i++;
       } else if (pourcentage >= 50) {
         let marker = L.marker([location.lat, location.lon], {icon: greenIcon}).addTo(map);

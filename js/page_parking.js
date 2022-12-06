@@ -16,66 +16,69 @@ fetch(
   //nouvelle fonction pour traiter les data recupérées
   .then(function getAdress(data) {
     //initialisation des variables de stockage des données
-    let parking = [];
-    let dispo = [];
-    let max = [];
-    let location = []
+    let dictPark = {};
 
     //boucle pour parcourir les données
     for (let i = 0; i < data.records.length; i++) {
       //recup des données
-      parking.push(data.records[i].record.fields.grp_nom);
-      dispo.push(data.records[i].record.fields.disponibilite);
-      max.push(data.records[i].record.fields.grp_exploitation);
-      location.push(data.records[i].record.fields.location);
-
-    }
-
-    //Feydeau
-    for (let i = 0; i < parking.length; i++) {
-      if (parking[i] == "Feydeau") {
-        document.getElementById("capacite_max").innerHTML =
-          "Capacité maximale : " + max[i];
-        document.getElementById("places_dispo").innerHTML =
-          "Places disponibles : " + dispo[i];
-        parkingAdress = location
-        console.log(parkingAdress[i])
-        //je separe les valeurs du tableau en deux
-        let latitude = parkingAdress[i].lat;
-        let longitude = parkingAdress[i].lon
-        var map = L.map("map").setView([latitude, longitude], 16);
-        var marker = L.marker([latitude, longitude]).addTo(map);
-        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 19,
-          attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        }).addTo(map);
-        new Chart(ctx, {
-          type: "pie",
-          data: {
-            labels: ["Places vide", "Places occupées"],
-            datasets: [
-              {
-                label: "",
-                data: [max[i], dispo[i]],
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
-        });
+      dictPark[i] = {
+        name: data.records[i].record.fields.grp_nom,
+        location: data.records[i].record.fields.location,
+        dispo: data.records[i].record.fields.disponibilite,
+        max: data.records[i].record.fields.grp_exploitation,
       }
-      console.log(parking[i])
-      console.log(max[i])
-      console.log(dispo[i])
     }
-  });
+    // Sort an dictPark by name
+    console.log(dictPark);
+
+    // Creation des blocs pour chaque parking et attribution des données
+    for (i in dictPark) {
+      console.log(dictPark[i].name)
+      let allParking = document.querySelector('.allParking');
+      allParking.innerHTML += `
+      <div class="bloc">
+      <div class="infos_parking">
+      <h1 class="parking_name ${dictPark[i].name}">${dictPark[i].name}</h1>
+      <h3 class="capacite_max ${dictPark[i].max}">Capacité max : ${dictPark[i].max}</h3>
+      <h3 class="places_dispo ${dictPark[i].dispo}">Places disponibles : ${dictPark[i].dispo}</h3>
+      </div>
+      <div class="graphique">
+      <canvas class="myChart ${dictPark[i].name}" width="400" height="400"></canvas>
+      </div>
+      `
+    }
+
+    // Création des graphiques et attribution des données
+    for (i in dictPark) {
+      let myChart = document.getElementsByClassName(`myChart ${dictPark[i].name}`);
+      let myChart2 = new Chart(myChart, {
+        type: 'doughnut',
+        data: {
+          labels: ['Places disponibles', 'Places occupées'],
+          datasets: [{
+            label: '# of Votes',
+            data: [dictPark[i].dispo, dictPark[i].max - dictPark[i].dispo],
+            backgroundColor: [
+              'rgba(0, 255, 0, 0.2)',
+              'rgba(255, 0, 0, 0.2)',
+            ],
+            borderColor: [
+              'rgba(0, 255, 0, 1)',
+              'rgba(255, 0, 0, 1)',
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
+});
 
 //le fetch s'actualise toutes les 2 minutes
 setTimeout(function () {
