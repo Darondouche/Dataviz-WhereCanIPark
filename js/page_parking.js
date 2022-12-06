@@ -39,7 +39,7 @@ fetch(
       <h1 class="parking_name ${dictPark[i].name}">${dictPark[i].nameDisplay}</h1>
       <h3 class="capacite_max ${dictPark[i].max}">Capacité max : ${dictPark[i].max}</h3>
       <h3 class="places_dispo ${dictPark[i].dispo}">Places disponibles : ${dictPark[i].dispo}</h3>
-      <div class="map ${dictPark[i].name}"></div>
+      <div id="map${dictPark[i].name}" style="width: 100%; height: 400px; border-radius: 20px;"></div>
       </div>
       <div class="graphique">
       <canvas class="myChart ${dictPark[i].name}" width="400" height="400"></canvas>
@@ -77,8 +77,20 @@ fetch(
         }
       });
     }
+    // Création des cartes et attribution des données
+    for (i in dictPark) {
+      let mapSelect = document.getElementById(`map${dictPark[i].name}`);
+      let location = dictPark[i].location;
+      
+      if (location) {
+        let map = L.map(mapSelect).setView([location.lat, location.lon], 16);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([location.lat, location.lon]).addTo(map)
+      }
+    }
   });
-
 
 //le fetch s'actualise toutes les 2 minutes
 // setTimeout(function () {
