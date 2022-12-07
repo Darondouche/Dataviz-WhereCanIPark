@@ -131,38 +131,6 @@ nav {
     border: none;
     border-radius: 17px;
   }  */
-  .carlogo {
-    position: absolute;
-    width: 142px;
-    height: 140px;
-    left: 0px;
-    top: 500px;
-    /* Animation left to right */
-    animation: slide 7s infinite;
-  }
-
-.carlogo {
-  position: absolute; 
-  width: 142px;
-  height: 140px;
-  left: 0px;
-  top: 600px;
-  /* Animation left to right */
-  animation: slide 5s infinite;
-}
-
-/* Animation left to right */
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(500px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 
 /*bouton de sélection */
 /*création des deux div au centre pour responsivité*/
@@ -180,11 +148,14 @@ nav {
   align-items: center;
   width: 40%;
   margin-top: 30px;
-  padding: 1em;
+  padding: 2em;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 40px;
 }
 
 .imageaccueil {
-  width: 55%;
+  box-sizing: border-box;
 }
 
 .city {
@@ -202,18 +173,6 @@ nav {
   border-radius: 10px;
 }
 
-.deroulant ul li {
-  width: 100%;
-  text-align: center;
-  list-style-type: none;
-}
-
-.deroulant ul::after {
-  content: "";
-  display: table;
-  clear: both;
-} 
-
 .deroulant a {
   text-decoration: none;
   color: rgb(0, 0, 0);
@@ -224,15 +183,42 @@ nav {
 .deroulant a:hover {
   color: rgb(30, 73, 116);
 }
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(60vh);
-    }
-    100% {
-      transform: translateX(0);
-      transform: scaleX(-1);
-    }
+
+.carlogo {
+  /* position: absolute; */
+  width: 142px;
+  height: 140px;
+  left: 0px;
+  top: 600px;
+  align-self: flex-start;
+
+  /* Animation left to right */
+  animation: slide 5s infinite;
+}
+
+/* Animation left to right */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
   }
+  50% {
+    transform: translateX(240%);
+  }
+  100% {
+    transform: translateX(0);
+    transform: scaleX(-1);
+  }
+}
+
+/* @keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(60vh);
+  }
+  100% {
+    transform: translateX(0);
+
+  }
+} */
