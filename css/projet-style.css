@@ -130,10 +130,7 @@ nav {
     background: #D9D9D9;
     border: none;
     border-radius: 17px;
-<<<<<<< HEAD
-  }   */
-=======
-  }  
+  }  */
   .carlogo {
     position: absolute;
     width: 142px;
@@ -143,7 +140,6 @@ nav {
     /* Animation left to right */
     animation: slide 7s infinite;
   }
->>>>>>> 662ede2296341e9319a1515ce83ed8c4fc7d97a4
 
 .carlogo {
   position: absolute; 
@@ -152,7 +148,6 @@ nav {
   left: 0px;
   top: 600px;
   /* Animation left to right */
-<<<<<<< HEAD
   animation: slide 5s infinite;
 }
 
@@ -229,7 +224,6 @@ nav {
 .deroulant a:hover {
   color: rgb(30, 73, 116);
 }
-=======
   @keyframes slide {
     0% {
       transform: translateX(0);
@@ -242,4 +236,3 @@ nav {
       transform: scaleX(-1);
     }
   }
->>>>>>> 662ede2296341e9319a1515ce83ed8c4fc7d97a4
