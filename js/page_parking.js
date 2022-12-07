@@ -61,8 +61,8 @@ fetch(
             {
               label: "# of Votes",
               data: [dictPark[i].dispo, dictPark[i].max - dictPark[i].dispo],
-              backgroundColor: ["rgba(0, 255, 0, 0.2)", "rgba(255, 0, 0, 0.2)"],
-              borderColor: ["rgba(0, 255, 0, 1)", "rgba(255, 0, 0, 1)"],
+              backgroundColor: ["rgba(116, 176, 68, 0.3)", "rgba(176, 68, 68, 0.3)"],
+              borderColor: ["rgba(116, 176, 68, 1)", "rgba(176, 68, 68, 1)"],
               borderWidth: 1,
             },
           ],

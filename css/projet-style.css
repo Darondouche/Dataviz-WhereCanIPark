@@ -166,7 +166,7 @@ nav {
 
 .deroulant {
   font-family: "Poppins", sans-serif;
-  background-color: #aeaeae;
+  background-color: rgb(131, 132, 141);
   top: 500px;
   width: 40%;
   list-style-type: none;
@@ -181,7 +181,7 @@ nav {
 }
 
 .deroulant a:hover {
-  color: rgb(30, 73, 116);
+  color: rgb(255, 255, 255);
 }
 
 .carlogo {

@@ -130,27 +130,13 @@ nav {
 
 .deroulant {
   font-family: "Poppins", sans-serif;
-  background-color: #aeaeae;
-  top: 500px;
-  width: 40%;
+  background-color: rgb(131, 132, 141);
+  top: 22vh;
+  width: 20%;
   list-style-type: none;
   border-radius: 10px;
-}
-
-.deroulant a {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-  border-bottom: 2px solid transparent;
-  padding: 10px 0px;
-}
-
-.deroulant {
-  font-family: "Poppins", sans-serif;
-  background-color: #aeaeae;
-  top: 500px;
-  width: 40%;
-  list-style-type: none;
-  border-radius: 10px;
+  position: absolute;
+  z-index: 1000000000000000;
 }
 
 .deroulant a {
@@ -168,9 +154,26 @@ nav {
 }
 
 .deroulant a:hover {
-  color: rgb(30, 73, 116);
+  color: rgb(255, 255, 255);
 }
 
-.deroulant ul li:hover {
-  display: block;
+.deroulant > a::after {
+  content: "   👇";
+  font-size: 12px;
 }
+
+.deroulant:hover {
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.deroulant:hover ul li {
+  display:block;
+}
+
+.sous li {
+  float: none;
+  width: 100%;
+  text-align: left;
+}
+
