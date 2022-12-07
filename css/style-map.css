@@ -1,6 +1,6 @@
 #map { 
-    height: 600px; 
-    width: 1200px;
+    height: 70vh; 
+    width: 70vw;
     /* center in middle of page and round border */
     margin: 0 auto;
     margin-top: 20px;
