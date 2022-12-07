@@ -135,7 +135,7 @@
     left: 0px;
     top: 500px;
     /* Animation left to right */
-    animation: slide 5s infinite;
+    animation: slide 7s infinite;
   }
 
   /* Animation left to right */
@@ -144,9 +144,10 @@
       transform: translateX(0);
     }
     50% {
-      transform: translateX(500px);
+      transform: translateX(60vh);
     }
     100% {
       transform: translateX(0);
+      transform: scaleX(-1);
     }
   }
