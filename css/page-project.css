@@ -37,11 +37,10 @@
   }
   
   .equipe {
-    position: absolute;
-    width: 60%;
-    height: 82%;
+    /* position: absolute; */
+    width: 100%;
+    max-width: 980px;
     left: 40%;
-    top: 150px;
   }
   
   .nav-list {
@@ -91,11 +90,11 @@
     }
   }
   .format1 {
-    position: absolute;
+    /* position: absolute;
     width: 418px;
     height: 80px;
     left: 74px;
-    top: 200px;
+    top: 200px; */
     font-family: 'Abril Fatface';
     font-style: normal;
     font-weight: 400;
@@ -105,11 +104,11 @@
     color: #000000;
   }
   .format2 {
-    position: absolute;
+    /* position: absolute;
     width: 375px;
     height: 127px;
     left: 96px;
-    top: 320px;
+    top: 320px; */
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -120,14 +119,9 @@
   }
 
   .byelogo {
-    position: absolute;
-    width: 132px;
-    height: 130px;
-    left: 210px;
+    width: 142px;
+    height: 140px;
     top: 600px;
-  }
-
-  .byelogo {
     animation: byelogo 1s ease infinite;
   }
   
@@ -151,4 +145,27 @@
     100%{
       transform: scale(1);
     }
+  }
+
+  .centrepage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 40%;
+    margin-top: 30px;
+    padding: 2em;
+    box-sizing: border-box;
+    overflow: hidden;
+    gap: 40px;
+  }
+  
+  .image_equipe {
+    box-sizing: border-box;
   }
